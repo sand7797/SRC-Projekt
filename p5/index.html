@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  Spilkode at joine (Lav dit eget hvis du ikke har nogen at joine) 
+  <br>
+  <input id="SpilKode" type=text value=""> </input>
+  <br>
+  <button id="startKnap">Start Spil</button>
+  
+  <script>
+    const startKnap = document.getElementById('startKnap');
+
+    startKnap.addEventListener('click', function () {
+      //Åbn game.html med parametre
+      const data = { spilID: document.getElementById("SpilKode").value};
+      const queryParams = new URLSearchParams(data).toString();
+      window.location.href = `game.html?${queryParams}`;
+    });
+  </script>
+</body>
+
+</html>
