@@ -171,21 +171,15 @@ for (let i = 0; i < level.faces.length; i++) {
 
     console.log(checkPlayerHit())
     if(checkRayHit()) {
-      push();
-      stroke(255, 255, 255);
-      strokeWeight(1);
-      translate(checkRayHit()[0],checkRayHit()[1],checkRayHit()[2]);
-      sphere(25);
-      pop();
+      //Brug afstandsformlen til at se om væg er i vejen
+      let dRay = sqrt(checkRayHit()[0]^2 + checkRayHit()[1]^2 + checkRayHit()[2]^2);
+      let dModstander = sqrt(modstanderPos[0]^2 + modstanderPos[1]^2 + modstanderPos[2]^2);
+      console.log(dRay, dModstander);
+      if (dRay > dModstander) {
+	console.log("hit");
+      }
     }
 
-    //Brug afstandsformlen til at se om væg er i vejen
-    let dRay = sqrt(checkRayHit()[0]^2 + checkRayHit()[1]^2 + checkRayHit()[2]^2);
-    let dModstander = sqrt(modstanderPos[0]^2 + modstanderPos[1]^2 + modstanderPos[2]^2);
-    console.log(dRay, dModstander);
-    if (dRay > dModstander) {
-      console.log("hit");
-    }
 
   }
 }
